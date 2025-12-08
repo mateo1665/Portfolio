@@ -1,0 +1,187 @@
+$accent-color: #d900ff;
+$text-white: #ffffff;
+
+.aboutSection {
+  min-height: 100vh;
+  background-color: transparent;
+  color: $text-white;
+  padding: 100px 20px;
+  position: relative;
+  z-index: 5;
+  overflow-x: hidden;
+}
+
+.timelineContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px 0;
+}
+
+.centerLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(217, 0, 255, 0.2);
+}
+
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  margin-bottom: 60px;
+  
+
+  opacity: 0;
+  transform: translateY(100px); 
+  transition: all 0.8s ease-out; 
+  
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 40px; 
+    width: 20px;
+    height: 20px;
+    background: $accent-color;
+    border-radius: 50%;
+    border: 4px solid #050505; 
+    z-index: 10;
+    box-shadow: 0 0 10px $accent-color;
+  }
+}
+
+.left {
+  left: 0;
+  text-align: right;
+  &::after { right: -10px; }
+  .content { margin-left: auto; }
+  transform: translateX(-50px); 
+  &.visible { transform: translateX(0); }
+}
+
+.right {
+  left: 50%;
+  text-align: left;
+
+  &::after { left: -10px; }
+  
+
+  transform: translateX(50px); 
+  &.visible { transform: translateX(0); }
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease; 
+  width: 90%; 
+
+  &:hover {
+    transform: scale(1.02); 
+    border-color: $accent-color;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    .highlight { color: $accent-color; text-shadow: 0 0 20px $accent-color; }
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: $accent-color;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.9);
+  }
+}
+
+.skillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+  .skillTag {
+    background: rgba(217, 0, 255, 0.1);
+    border: 1px solid $accent-color;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    
+    &:hover {
+      background: $accent-color;
+      box-shadow: 0 0 10px $accent-color;
+    }
+  }
+}
+
+.timelineList {
+  list-style: none;
+  padding: 0;
+  text-align: inherit;
+
+  li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+  }
+
+  .date {
+    display: block;
+    color: $accent-color;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  strong {
+    font-size: 1.2rem;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .centerLine { left: 20px; }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+    
+    transform: translateY(50px);
+    &.visible { transform: translateY(0); }
+
+    &::after { left: 10px; }
+  }
+
+  .left, .right {
+    left: 0;
+    text-align: left;
+  }
+  
+  .content { width: 100%; }
+  .skillGrid { justify-content: flex-start; }
+}

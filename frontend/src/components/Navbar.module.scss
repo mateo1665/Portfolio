@@ -1,0 +1,109 @@
+$accent-color: #d900ff;
+$text-white: #ffffff;
+$dark-bg: rgba(5, 5, 5, 0.8);
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  backdrop-filter: none;
+  z-index: 1000;
+  transition: all 0.4s ease-in-out;
+}
+
+.scrolled {
+  padding: 15px 50px;
+  background: $dark-bg;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: $text-white;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
+
+  &:hover {
+    text-shadow: 0 0 20px $accent-color;
+  }
+
+  .accent {
+    color: $accent-color;
+  }
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  li {
+    position: relative;
+  }
+
+  a:not(.contactBtn) {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+    position: relative;
+
+    &:hover {
+      color: $text-white;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $accent-color;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.contactBtn {
+  text-decoration: none;
+  padding: 10px 25px;
+  border: 1px solid $accent-color;
+  border-radius: 50px;
+  color: $accent-color;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $accent-color;
+    color: white;
+    box-shadow: 0 0 15px $accent-color;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar, .scrolled {
+    padding: 20px;
+  }
+  .navLinks {
+    display: none;
+  }
+}

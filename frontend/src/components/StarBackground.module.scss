@@ -1,0 +1,51 @@
+$deep-space: #020003;
+
+@function box-shadow-stars($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+$stars-small: box-shadow-stars(700);
+$stars-medium: box-shadow-stars(200);
+$stars-large: box-shadow-stars(100);
+
+.starWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, #1a0b2e 0%, $deep-space 80%);
+  z-index: -1;
+  overflow: hidden;
+}
+
+@mixin star-layer($size, $shadow, $duration) {
+  position: absolute;
+  top: 0; left: 0;
+  width: $size; height: $size;
+  background: transparent;
+  box-shadow: $shadow;
+  animation: moveStars $duration linear infinite;
+  
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: $size; height: $size;
+    background: transparent;
+    box-shadow: $shadow;
+  }
+}
+
+.starsSmall { @include star-layer(1px, $stars-small, 50s); }
+.starsMedium { @include star-layer(2px, $stars-medium, 100s); }
+.starsLarge { @include star-layer(3px, $stars-large, 150s); }
+
+@keyframes moveStars {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
