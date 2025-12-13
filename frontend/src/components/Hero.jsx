@@ -7,7 +7,9 @@ const Hero = () => {
       <div className={styles.content}>
         <h1>WELKOM</h1>
         <p>Op mijn persoonlijke portfolio</p>
-        <button className={styles.ctaButton}>Bekijk mijn werk</button>
+        <a href="#projects" className={styles.ctaButton}>
+          Bekijk mijn werk
+        </a>
       </div>
     </section>
   );

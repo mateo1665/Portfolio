@@ -1,0 +1,162 @@
+$accent-color: #d900ff;
+$text-white: #ffffff;
+$secondary-accent: #4cc9f0;
+
+.contactSection {
+  min-height: 80vh;
+  padding: 100px 20px;
+  color: $text-white;
+  position: relative;
+  z-index: 5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  
+  .highlight {
+    color: $accent-color;
+    text-shadow: 0 0 20px rgba(217, 0, 255, 0.4);
+  }
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.infoBox {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: $secondary-accent;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+
+  span:first-child { font-size: 1.5rem; }
+
+  a {
+    color: $text-white;
+    text-decoration: none;
+    transition: color 0.3s;
+    &:hover { color: $accent-color; }
+  }
+}
+
+.formBox {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.inputGroup {
+  margin-bottom: 25px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: $secondary-accent;
+  }
+
+  input, textarea {
+    width: 100%;
+    box-sizing: border-box; 
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    color: $text-white;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 15px rgba(217, 0, 255, 0.2);
+    }
+  }
+  
+  textarea { resize: vertical; }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, $accent-color, darken($accent-color, 10%));
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px $accent-color;
+  }
+}
+
+.successMessage {
+  text-align: center;
+  padding: 40px 0;
+  
+  h3 { font-size: 2rem; color: #4ade80; margin-bottom: 15px; }
+  p { font-size: 1.2rem; margin-bottom: 30px; }
+  
+  .resetBtn {
+    background: transparent;
+    border: 1px solid $text-white;
+    color: $text-white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover { background: rgba(255,255,255,0.1); }
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  h2 { font-size: 2.5rem; }
+}

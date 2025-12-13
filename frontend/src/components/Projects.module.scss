@@ -1,0 +1,113 @@
+$accent-color: #d900ff;
+$text-white: #ffffff;
+$secondary-accent: #4cc9f0; 
+
+.projectsSection {
+  min-height: 100vh;
+  background-color: transparent;
+  padding: 100px 20px;
+  color: $text-white;
+  position: relative;
+  z-index: 5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  
+  .highlight {
+    color: $accent-color;
+    text-shadow: 0 0 20px rgba(217, 0, 255, 0.4);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: $accent-color;
+    box-shadow: 0 0 30px rgba(217, 0, 255, 0.15);
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: $text-white;
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tag {
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: $secondary-accent;
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.btnLink {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid $accent-color;
+  color: $accent-color;
+
+  &:hover {
+    background: $accent-color;
+    color: white;
+    box-shadow: 0 0 15px $accent-color;
+  }
+}
