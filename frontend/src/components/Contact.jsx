@@ -9,6 +9,8 @@ const Contact = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Nieuw: voor de verzendstatus
+  const [errorMessage, setErrorMessage] = useState(''); // Nieuw: voor foutmeldingen
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,10 +20,33 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setErrorMessage('');
+
+    try {
+      // LET OP: Pas de poort (3001) aan naar de poort van jouw backend!
+      const response = await fetch('http://localhost:3001/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMessage(result.error || 'Er ging iets mis.');
+      }
+    } catch (error) {
+      setErrorMessage('Kan geen verbinding maken met de server. Staat je backend aan?');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -41,7 +66,7 @@ const Contact = () => {
             <div className={styles.details}>
               <div className={styles.detailItem}>
                 <span>📧</span>
-                <a href="mailto:mateo@example.com">Mateovukoje16@gmail.com</a>
+                <a href="mailto:Mateovukoje16@gmail.com">Mateovukoje16@gmail.com</a>
               </div>
               <div className={styles.detailItem}>
                 <span>📍</span>
@@ -97,8 +122,15 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  Verstuur Bericht
+                {/* Foutmelding display als er iets misgaat */}
+                {errorMessage && <p style={{color: 'red', marginBottom: '1rem'}}>{errorMessage}</p>}
+
+                <button 
+                  type="submit" 
+                  className={styles.submitBtn} 
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Verzenden...' : 'Verstuur Bericht'}
                 </button>
               </form>
             )}

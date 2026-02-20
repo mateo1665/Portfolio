@@ -8,21 +8,21 @@ const Projects = () => {
       description: "De website waar je nu op kijkt. Gebouwd met React en SCSS.",
       tags: ["React", "SCSS", "Design"],
       link: "#", 
-      github: "#"
+      github: "https://github.com/mateo1665/Portfolio.git"
     },
     {
-      title: "School Dashboard",
-      description: "Een data-dashboard gemaakt voor mijn opleiding.",
-      tags: ["JavaScript", "HTML", "Chart.js"],
+      title: "Kensan schoolproject",
+      description: "Een school project om een kleine voorbeeld fabriek te draaien op een plc.",
+      tags: ["Node.js", "React", "SQlite"],
       link: "#",
-      github: "#"
+      github: "https://github.com/ysneoufkr/Kensan-Ombouw-fischertechnikplant-Project.git"
     },
     {
       title: "Juric Promet",
-      description: "Een website voor me oom die een transport en detailing bedrijf heeft.",
+      description: "Een website voor iemand in Kroatie die een transport/detail bedrijf heeft.",
       tags: ["Node.js", "React","PostgreSQL","CSS","Express.js"],
       link: "#",
-      github: "#"
+      github: "https://github.com/mateo1665/Juric-Promet.git"
     }
   ];
 

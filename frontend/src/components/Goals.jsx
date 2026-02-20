@@ -19,6 +19,7 @@ const Goals = () => {
         "MBO 4 afronden",
         "Verdiepen in Data Analyse",
         "Verdiepen in Cyber Sequirity",
+        "Beginnen met editen",
         "Eerste omzet maken",
         "Beginnen met me HBO"
       ]
@@ -29,6 +30,7 @@ const Goals = () => {
       items: [
         "Me onderneming met websites bouwen verder uitbreiden",
         "HBO groot prioriteit maken",
+        "Beginnen met fotograferen",
         "Me eerste auto kopen",
         "Veel mogelijk projecten maken en afronden voor me onderneming"
       ]

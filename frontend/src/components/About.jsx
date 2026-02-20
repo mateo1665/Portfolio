@@ -49,7 +49,7 @@ const About = () => {
             </p>
             <p>
               Ik zoek altijd naar de volgende uitdaging. Mijn doel is om van niets iets groots te maken, 
-              zowel voor mezelf als voor mijn klanten.
+              zowel voor mezelf als voor mijn toekomst.
             </p>
           </div>
         </div>
@@ -57,20 +57,21 @@ const About = () => {
         <div ref={addToRefs} className={`${styles.timelineItem} ${styles.right}`}>
           <div className={styles.content}>
             <h3>Huidige Focus</h3>
-            <p>Momenteel bouw ik moderne websites en applicaties.
-                Dit zijn ook de talen waar ik mee heb gewerkt en natuurlijk meer uit wil halen en leren.
+            <p>Momenteel is dat wat ik op school heb geleerd.
+              Ik bouw zelf ook projecten hierin en wil verder uitbreiden in talen en frameworks. 
             </p>
             <div className={styles.skillGrid}>
               <span className={styles.skillTag}>HTML & CSS</span>
               <span className={styles.skillTag}>JavaScript</span>
               <span className={styles.skillTag}>React</span>
-              <span className={styles.skillTag}>Sass</span>
+              <span className={styles.skillTag}>Scss</span>
               <span className={styles.skillTag}>MysSQL</span>
               <span className={styles.skillTag}>PostgreSQL</span>
               <span className={styles.skillTag}>Python</span>
               <span className={styles.skillTag}>Laravel</span>
               <span className={styles.skillTag}>C#</span>
               <span className={styles.skillTag}>Node.js</span>
+              <span className={styles.skillTag}>PHP</span>
             </div>
           </div>
         </div>
@@ -85,14 +86,16 @@ const About = () => {
                 <p>Het fundament leggen met strakke code en design. Daar ben ik vooral mee bezig wil veel leren ik heb zelfs al klanten waarmee ik bezig ben.
                     Daarnaast gebruik ik nu AI en me mentor om hulp om dingen uit te leggen want me doel is zelf code leren schrijven en verbeteren en uitlezen,
                     Waardoor ik er proffecioneel uitstraal in de toekomst voor mij klanten en voor mezelf natuurlijk.
-                    En data analyse en Cybersecurity gaan nu ook in me projecten komen van mijn klanten zodat ik op elk flank uitbreid tot iets groots voor mezelf
+                    En data analyse en Cybersecurity gaan nu ook in me projecten komen van mijn klanten zodat ik op elk flank uitbreid tot iets groots voor mezelf.
                 </p>
               </li>
               <li>
                 <span className={styles.date}>2026/27</span>
                 <strong>Bedrijf op rolletjes en HBO beginnen</strong>
                 <p>Ik wil over een jaartje wat verdient hebben naast me school en me opleiding daardoor kan ik het hopelijk laten versnellen en kan laten zien dat ik echt proffecioneel bezig ben.
-                    Zodat ik daar natuurlijk me diploma haal en veel kan leren van docenten die daar zitten om mij naar de volgende stap te werkenS
+                    Zodat ik daar natuurlijk me diploma haal en veel kan leren van docenten die daar zitten om mij naar de volgende stap te werken. Ik zie hier groots in en hopelijk groeit uit naar een jaar.
+                    dit jaar zal ik ook gaan fotograferen iedergeval meebeginnen dus wordt een hoop maar ik wilt het ook doen van frontend/backend ,Cybersecurity, Data analyst, Editor en fotograaf
+                    iedergeval zijn dit me plannen voor dit jaar.
                 </p>
               </li>
             </ul>
