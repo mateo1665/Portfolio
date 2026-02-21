@@ -4,9 +4,9 @@ const dotenv = require('dotenv');
 const { Resend } = require('resend');
 
 dotenv.config();
+
 const app = express();
 
-// DIT IS DE FIX: Vertel de backend dat hij poort 5173 moet vertrouwen
 app.use(cors({
   origin: 'http://localhost:5173' 
 }));
@@ -17,19 +17,28 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post('/api/send', async (req, res) => {
   const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
   try {
     const data = await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: 'mateovukoje16@gmail.com',
-      subject: `Nieuwe aanvraag van ${name}`,
-      html: `<p>Bericht van: ${name} (${email})</p><p>${message}</p>`
+      to: process.env.RECEIVER_EMAIL,
+      subject: `Portfolio Message: ${name}`,
+      html: `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `
     });
-    console.log('Verzonden naar Resend:', data);
+
     res.status(200).json(data);
   } catch (error) {
-    console.error('Resend Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
 
-app.listen(3001, () => console.log('🚀 Backend draait op poort 3001'));
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Running on port ${PORT}`));
